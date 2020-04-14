@@ -1,0 +1,38 @@
+FROM ubuntu:18.04
+
+RUN  apt update && apt install -y zsh \
+                     locales \
+                     vim \
+                     python3 \
+                     python3-pip
+
+ENV LC_ALL en_US.UTF-8
+RUN locale-gen en_US.UTF-8
+
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
+
+# Use the same gid and uid as your user on the host system. You can find them
+# out with the id  programm. This way the file ownership in mapped directories is
+# consistent with the host system.
+RUN echo "%sudo ALL=(ALL) ALL" >> /etc/sudoers
+RUN groupadd --gid 1000 user
+RUN useradd --uid 1000  --gid user \
+    --home-dir /home/user --shell /usr/bin/bash  \
+    --groups sudo,user \
+    --password password \
+    user
+
+
+# set default passwords
+RUN echo user:password | chpasswd && \
+    echo root:password | chpasswd
+
+RUN mkdir -p /home/user && chown -R user:user /home/user
+
+USER user
+WORKDIR /home/user
+
+RUN echo "PATH=/opt/ros/melodic/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/bin:~/.local/bin/" > /home/user/.bashrc
+
+CMD ["sh", "-c", "jupyter lab --ip 0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"]

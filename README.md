@@ -36,11 +36,10 @@ $ git remote add origin <your git repo url>
 
 Please clear the notebook's output before committing. Otherwise the repository
 size can get pretty big.
-The best thing is to setup a `pre-commit` hook that removes the outputs before
-the files are committed:
+You can use [https://github.com/kynan/nbstripout][nbstripout] which is already a dependency of this repository. Set it up using:
 
 ```
-$ ln -s ../../nb_strip_output.py .git/hooks/pre-commit
+nbstripout --install
 ```
 
 Otherwise you manually clean the output with `Cell -> All Output -> Clear` or
@@ -54,7 +53,9 @@ Make sure that we have read rights on your repository.
 Please give us read access to your repository. Add 'stsundermann' and 'goehring' on Github
 or 'ssundermann' as well as 'drgoehring' on FU GitLab.
 
-## Docker
+Now choose either the Docker container or PyCharm to set up your environment
+
+## Docker (MacOS, Linux, (Windows))
 
 There exists a script for a [docker](https://www.docker.com/) image.
 All the libraries we will use are included in this image.
@@ -68,6 +69,7 @@ Build the image:
 ```
 $ ./docker_build.sh
 ```
+
 The build script will create a user with your username and uid inside the image.
 It may take some minutes until the image is built.
 
@@ -82,3 +84,17 @@ $ ./docker_start.sh
 
 Now visit [localhost:8888](http://localhost:8888). Jupyter Notebook
 should be ready to use.
+
+## PyCharm (MacOS, Linux, Windows)
+Open the repository in PyCharm. Wait for indexing to complete and open up any assignment notebook file. 
+PyCharm will now complain because no interpreter is configured. In the warning press `Add interpreter` and choose Python 3 inside a virtual environment.
+
+Once again, wait for PyCharm to set up your environment and indexing. Open up the terminal inside PyCharm and install the dependencies: 
+```
+pip3 install --upgrade -r requirements.txt
+```
+
+Start jupyter lab:
+````
+jupyter lab
+````
