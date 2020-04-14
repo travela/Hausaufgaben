@@ -42,8 +42,7 @@ You can use [https://github.com/kynan/nbstripout][nbstripout] which is already a
 nbstripout --install
 ```
 
-Otherwise you manually clean the output with `Cell -> All Output -> Clear` or
-use the `nb_strip_output.py <filename>` script.
+Otherwise you manually clean the output with `Cell -> All Output -> Clear`.
 
 To get the latest assignments into your repository see [how to sync a fork](https://help.github.com/articles/syncing-a-fork/).
 
