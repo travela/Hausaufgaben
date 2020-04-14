@@ -8,8 +8,8 @@ All assignments will be Jupyter Notebooks. That you have to complete.
 The rough workflow is:
 1. You clone this repository.
 2. Edit the exercises.
-3. Push it to your private repository.
-4. I fetch your code when the assignment is due. (Every Wednesday at 8:00 a.m.)
+3. Push it to your **private** repository.
+4. I fetch your code when the assignment is due. (Every Wednesday at 12:00 pm)
 5. You fetch the latest assignments from this repository.
 
 It is required to use private git repositories.
@@ -34,8 +34,7 @@ Add your remote
 $ git remote add origin <your git repo url>
 ```
 
-Please clear the notebook's output before committing. Otherwise the repository
-size can get pretty big.
+Please clear the notebook's output before committing. Otherwise the repository size can get pretty big.
 You can use [https://github.com/kynan/nbstripout][nbstripout] which is already a dependency of this repository. Set it up using:
 
 ```
@@ -49,8 +48,8 @@ To get the latest assignments into your repository see [how to sync a fork](http
 Paste a link to your repository into the MyCampus assignment box.
 Make sure that we have read rights on your repository.
 
-Please give us read access to your repository. Add 'stsundermann' and 'goehring' on Github
-or 'ssundermann' as well as 'drgoehring' on FU GitLab.
+Please give us read access to your repository. Add `stsundermann` and `goehring` on Github
+or `ssundermann` as well as `drgoehring` on FU GitLab.
 
 Now choose either the Docker container or PyCharm to set up your environment
 
@@ -88,7 +87,8 @@ should be ready to use.
 Open the repository in PyCharm. Wait for indexing to complete and open up any assignment notebook file. 
 PyCharm will now complain because no interpreter is configured. In the warning press `Add interpreter` and choose Python 3 inside a virtual environment.
 
-Once again, wait for PyCharm to set up your environment and indexing. Open up the terminal inside PyCharm and install the dependencies: 
+Once again, wait for PyCharm to set up your environment and indexing. Open up the terminal inside PyCharm (it is important to open up the terminal after PyCharm created your virtual environment, if unsure open a new terminal tab) inside PyCharm and install the dependencies: 
+
 ```
 pip3 install --upgrade -r requirements.txt
 ```
@@ -97,3 +97,6 @@ Start jupyter lab:
 ````
 jupyter lab
 ````
+
+Now visit [localhost:8888](http://localhost:8888). Jupyter Notebook
+should be ready to use.
