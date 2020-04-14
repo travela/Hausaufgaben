@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# docker
+.docker_cid
+Dockerfile
+
+# Pycharm / Jetbrains IDEs
+.idea/
+
+# Python venv
+venv/
