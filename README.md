@@ -1,4 +1,4 @@
-# FU Berlin - Image Processing SS 20
+# FU Berlin - Image Processing SS 20 Test
 
 The assignments will be published to this repository.
 All assignments will be Jupyter Notebooks. That you have to complete.
